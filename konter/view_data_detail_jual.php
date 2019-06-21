@@ -10,11 +10,14 @@ include("connection.php");
         <th>Kode Barang</th>
         <th>Faktur</th>
         <th>Jumlah Jual</th>
+        <th>Tanggal Penjualan</th>
+        <th>Nama Barang</th>
+        <th>Harga Barang</th>
         <th>Aksi</th>
     </tr>
 <?php
     $no=1;
-    $query=("SELECT * FROM detail_jual");
+    $query=("SELECT * FROM view_penjualan");
     $lihat = mysqli_query($con, $query) or die('Error, query failed. ' . mysqli_error());
     $jml_data=mysqli_num_rows($lihat);
     while($r=mysqli_fetch_array($lihat)){
@@ -25,6 +28,9 @@ include("connection.php");
         <td><?php echo"$r[kode_brg]";?></td>
         <td><?php echo"$r[faktur]";?></td>
         <td><?php echo"$r[jml_jual]";?></td>
+        <td><?php echo"$r[tanggal]";?></td>
+        <td><?php echo"$r[Nama_barang]";?></td>
+        <td><?php echo"$r[Harga_barang]";?></td>
         <td><a href="data_detail_jual.php?kode_detail_jual=<?php echo $r['kode_detail_jual'];?>">Detail</a></td>
             
     </tr>
